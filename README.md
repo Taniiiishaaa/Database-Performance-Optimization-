@@ -4,124 +4,188 @@ The project explores how database performance can be improved by analyzing execu
 
 ---
 
-# 🎯 Project Objectives
+# 📖 Overview
 
-The main goals of this project are:
+Modern database systems require efficient query execution to handle large datasets and high workloads. This project demonstrates how **query performance can be significantly improved** by analyzing execution plans and applying optimization techniques.
 
-- Analyze **query execution plans** using PostgreSQL tools
-- Design and optimize **database schemas**
-- Implement effective **indexing strategies**
-- Write **optimized SQL queries**
-- Evaluate and compare **query performance**
+The project includes:
+
+- Analysis of **PostgreSQL execution plans**
+- Design and evaluation of **database schemas**
+- Implementation of **different indexing strategies**
+- Development of **optimized SQL queries**
+- Performance comparison between **original and optimized queries**
 
 ---
 
-# 📂 Repository Structure
-│── 📂 schemas/                   # Database schemas and diagrams
+# 🎯 Key Features
+
+- 🔍 Query execution plan analysis using **EXPLAIN ANALYZE**
+- 📈 SQL performance optimization
+- 🗂 Multiple indexing strategies for faster queries
+- ⚡ Improved query execution time
+- 📊 Performance comparison and evaluation
+
+---
+
+# 📂 Project Structure
+
+```
+CSEN604-Database-Optimization-Project/
+│
+├── schemas/                     # Database schemas and diagrams
 │   ├── Schema-1.png
 │   ├── Schema-2.png
 │   ├── Schema-4.png
-│── 📂 scripts/                    # SQL setup scripts
+│
+├── scripts/                     # Database setup scripts
 │   ├── script.sh
-│── 📂 queries/                    # SQL queries (original and optimized)
-│   ├── original-queries.txt
-│   ├── new-queries.txt
-│── 📂 docs/                       # Documentation and reports
-│   ├── Report.pdf                #Final Report and Documentation of the project
-│── 📜 README.md                    # Project introduction and setup guide
-
+│
+├── queries/                     # SQL queries
+│   ├── original-queries.txt     # Original queries
+│   ├── new-queries.txt          # Optimized queries
+│
+├── docs/                        # Project documentation
+│   ├── Report.pdf               # Final report and analysis
+│
+└── README.md                    # Project documentation
+```
 
 ---
 
-# 🚀 Getting Started
+# ⚙️ Installation & Setup
 
-## 1️⃣ Setting Up the Database
+## 1️⃣ Prerequisites
 
-Run the following command to **create the databases and tables**:
+Make sure the following tools are installed:
+
+- **PostgreSQL 13 or 14**
+- **psql CLI**
+- **pgAdmin** (optional GUI for PostgreSQL)
+
+---
+
+## 2️⃣ Database Setup
+
+Run the following command to create the required database and tables:
 
 ```bash
 psql -U <your_username> -f scripts/script.sh
+```
 
-2️⃣ Running the Queries
-Run the original queries
+---
+
+# 🚀 Running the Queries
+
+## Run Original Queries
+
+Execute the original queries to analyze their baseline performance.
+
+```bash
 psql -U <your_username> -d <database_name> -f queries/original-queries.txt
-Run the optimized queries
+```
+
+---
+
+## Run Optimized Queries
+
+Execute the optimized queries to evaluate performance improvements.
+
+```bash
 psql -U <your_username> -d <database_name> -f queries/new-queries.txt
-3️⃣ Running Performance Analysis
+```
 
-The project report (Report.pdf) includes:
+---
 
-Screenshots of PostgreSQL EXPLAIN ANALYZE output for each query
+# 📊 Performance Analysis
 
-PostgreSQL configuration and parameter adjustments
+Query performance was analyzed using PostgreSQL's **EXPLAIN ANALYZE** command.
 
-Performance comparison between original and optimized queries
+Example:
 
-Explanation of recommended indexing strategies
+```sql
+EXPLAIN ANALYZE SELECT * FROM table_name;
+```
 
-📈 Performance Optimization Strategies
+This command helps identify:
 
-Several techniques were used to improve database performance.
+- Sequential scans
+- Expensive query operations
+- Join inefficiencies
+- Index usage
 
-🔍 Query Analysis
+---
 
-Used EXPLAIN ANALYZE to inspect query execution plans
+# 📈 Optimization Strategies
 
-Identified expensive operations and bottlenecks
+The following techniques were applied to improve database performance.
 
-🗂 Indexing Strategies
-Index Type	Purpose
-B+ Tree Index	Efficient range queries and ordered data
-Hash Index	Fast equality lookups
-BRIN Index	Optimized for large datasets with sequential values
-Mixed Indexing	Combined strategies to improve overall performance
-⚡ Query Optimization
+## 🔍 Query Execution Plan Analysis
 
-Rewrote queries to reduce execution cost
+- Used **EXPLAIN ANALYZE** to inspect query execution plans
+- Identified expensive operations
+- Detected inefficient sequential scans
 
-Eliminated unnecessary joins
+---
 
-Reduced scanning of large tables
+## 🗂 Indexing Strategies
 
-Optimized filtering conditions
+| Index Type | Purpose |
+|------------|--------|
+| **B+ Tree Index** | Efficient range queries and sorting |
+| **Hash Index** | Faster equality lookups |
+| **BRIN Index** | Suitable for large datasets with sequential data |
+| **Mixed Indexing** | Combination of multiple index strategies |
 
-📊 Performance Evaluation
+---
 
-The optimized queries were evaluated based on:
+## ⚡ Query Optimization
 
-Query execution time
+Optimized queries were written to:
 
-Query execution cost
+- Reduce full table scans
+- Improve filtering conditions
+- Optimize joins
+- Lower execution cost
 
-Index utilization
+---
 
-Improved query execution plans
+# 📊 Performance Evaluation
 
-Results showed significant performance improvements compared to the original queries.
+Performance improvements were measured using:
 
-🔧 Dependencies
+- Query execution time
+- Query cost estimation
+- Index utilization
+- Improved query execution plans
 
-To run this project you will need:
+The optimized queries showed **significant improvements in database performance and efficiency** compared to the original queries.
 
-PostgreSQL 13 or 14
+---
 
-psql CLI
+# 📄 Documentation
 
-pgAdmin (optional GUI for database management)
+Detailed analysis and results are available in:
 
-📄 Documentation
-
-Detailed analysis and performance comparisons are available in:
-
+```
 docs/Report.pdf
+```
 
 The report includes:
 
-Query analysis results
+- Execution plan screenshots
+- Query optimization explanations
+- Index recommendations
+- Performance comparison
 
-Execution plan screenshots
+--- 
 
-Index recommendations
+Focus Areas:
 
-Performance comparison
+- SQL Query Optimization  
+- Database Indexing  
+- Query Execution Plans  
+- PostgreSQL Performance Tuning  
+
+---
 
